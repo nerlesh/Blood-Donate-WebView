@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blood Donate</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+	<link rel="shortcut icon" href="../favicon.ico">
+	<script src="jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css" />
+  <script src="js/jquery.js"></script>
+  <script src="searchpeople.js"></script>
+  <script src="js/jquery.mobile-1.4.0-rc.1.js"></script>
+	<script src="jquery.mobile-1.4.0.min.js"></script>
+	<script>
+	function fnSearch(){
+	getUsersList();
+	}
+	$( document ).on( "click", ".show-page-loading-msg", function() {
+    var $this = $( this ),
+        theme = $this.jqmData( "theme" ) || $.mobile.loader.prototype.options.theme,
+        msgText = $this.jqmData( "msgtext" ) || $.mobile.loader.prototype.options.text,
+        textVisible = $this.jqmData( "textvisible" ) || $.mobile.loader.prototype.options.textVisible,
+        textonly = !!$this.jqmData( "textonly" );
+        html = $this.jqmData( "html" ) || "";
+    $.mobile.loading( "show", {
+            text: msgText,
+            textVisible: textVisible,
+            theme: theme,
+            textonly: textonly,
+            html: html
+    });
+})
+.on( "click", ".hide-page-loading-msg", function() {
+    $.mobile.loading( "hide" );
+});
+	</script>
+  </head>
+  <body>
+  <div data-role="page">
+ <div data-role="header" data-theme="d" style="overflow:hidden;">
+    <h4 style="text-align:center;">Blood Donate</h4>
+    <div data-role="tabs" id="tabs">
+    <div data-role="navbar" data-iconpos="bottom">
+        <ul>
+            <li><a href="#search" data-icon="flat-location"  data-transition="slidefade" >Search</a></li>
+            <li><a href="#register" data-icon="flat-man"  data-transition="slidefade" >Register</a></li>
+        </ul>
+        <div id="search" class="ui-body-d ui-content">
+      <table align="center">
+      <tr>
+      <td>Enter Address:</td><td><input type="search" name="password" id="area" value="" placeholder="Type in an Area" size="50" ></td>
+      </tr>
+          <tr><td>Blood Group:</td><td>
+<select name="select-choice-1" id="select-choice-1">
+    <option value="ap">A+</option>
+    <option value="an">A-</option>
+    <option value="express">Express: next day</option>
+    <option value="overnight">Overnight</option>
+</select></td></tr>
+      </tr>
+      <tr>
+      <td></td><td><center>
+      		<p><a href="#one" class="show-page-loading-msg ui-btn ui-btn-inline ui-icon-search ui-btn-icon-left" data-textonly="false" data-textvisible="false" data-msgtext="" data-inline="true" onClick="fnSearch()" size="50" data-transition="pop">   Search   </a></p>
+    <!--  <input type="button" value="Search" data-icon="search" onClick="fnSearch()"> -->
+      </center></td>
+      </tr>
+     
+      </table>
+     
+  </div>
+  
+  <div id="register" class="ui-body-d ui-content">
+    <table align="center">
+    <tr><td><input type="text" name="password" id="name" value="" placeholder="Name*" size="50" ></td></tr>
+    <tr><td><input type="text" name="password" id="doorNumber" value="" placeholder="Door No*" size="50" ></td></tr>
+     <tr><td><input type="text" name="password" id="areaName" value="" placeholder="Area Name*" size="50" ></td></tr>
+          <tr><td><input type="text" name="password" id="city" value="" placeholder="City*" size="50" ></td></tr>
+           <tr><td><input type="text" name="password" id="state" value="" placeholder="State*" size="50" ></td></tr>
+            <tr><td><input type="text" name="password" id="country" value="" placeholder="Country*" size="50" ></td></tr>
+             <tr><td><input type="text" name="password" id="mobile" value="" placeholder="Mobile number" size="50" ></td></tr>
+         <tr><td><center>
+<select name="select-choice-a" id="select-choice-a" data-native-menu="false" data-theme="d" >
+    <option>Select Blood Group</option>
+    <option value="standard">A+</option>
+    <option value="rush">A-</option>
+    <option value="express">O+</option>
+    <option value="overnight">O-</option>
+</select></center></td></tr>
+         <tr><td><center><input type="button" value="Register" data-icon="flat-plus"></center></td></tr>
+    </table>
+   
+  </div>
+    </div><!-- /navbar -->
+<div data-role="page" id="two" data-theme="d">
+    </div>
+</div><!-- /footer -->
+   
+
+
+   </div>
+    </div>
+  <div data-role="page" id="one">
+  <div data-role="header" data-theme="d" style="overflow:hidden;">
+    <h4 style="text-align:center;">Results</h4>
+  <ul data-role="listview" data-inset="true" id="userList">
+  
+  </ul>
+  </div>
+    </div>
+  </body>
+</html>
+
